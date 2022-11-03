@@ -1,0 +1,12 @@
+vs extensions:
+ES7 React/Redux/GraphQL/REACT-NATIVE Snippets
+Bracket pair colorizer
+Auto Rename Tag
+javaScript(ES6)code snippets
+prettier Code formatter
+
+imp command :
+ls -a(will show all list )
+rm -rf .git (remove .git from the list)
+
+=>rafc arow functinal component
