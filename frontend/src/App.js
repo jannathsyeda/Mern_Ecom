@@ -6,7 +6,7 @@ function App() {
   return (
     <>
    <Header/>
-   <main>
+   <main className="my-2">
     <Container>    <h1>welcome to shop</h1>
 </Container>
    </main>
