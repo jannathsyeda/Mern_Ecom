@@ -1,18 +1,19 @@
-import Footers from "./Components/Footers";
-import Header from "./Components/Header"
-import {Container} from 'react-bootstrap'
+import Footers from './Components/Footers'
+import Header from './Components/Header'
+import { Container } from 'react-bootstrap'
+import HeaderScreens from './Screens/HeaderScreens'
 function App() {
-
   return (
     <>
-   <Header/>
-   <main className="my-2">
-    <Container>    <h1>welcome to shop</h1>
-</Container>
-   </main>
-   <Footers/>
-   </>
-  );
+      <Header />
+      <main className="my-2">
+        <Container>
+       <HeaderScreens/>
+        </Container>
+      </main>
+      <Footers />
+    </>
+  )
 }
 
-export default App;
+export default App

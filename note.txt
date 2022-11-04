@@ -10,3 +10,5 @@ ls -a(will show all list )
 rm -rf .git (remove .git from the list)
 
 =>rafc arow functinal component
+--react devtools extension
+--redux dev tools
