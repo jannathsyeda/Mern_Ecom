@@ -12,3 +12,6 @@ rm -rf .git (remove .git from the list)
 =>rafc arow functinal component
 --react devtools extension
 --redux dev tools
+backend-------
+npm init
+npm i express
