@@ -15,3 +15,4 @@ rm -rf .git (remove .git from the list)
 backend-------
 npm init
 npm i express
+npm install nodemon
