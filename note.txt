@@ -16,3 +16,10 @@ backend-------
 npm init
 npm i express
 npm install nodemon
+
+ENV
+NODE_ENV=development
+PORT=5000
+MONGO_URI="mongodb+srv://Jannath:jannath123@cluster0.ku9hx.mongodb.net/E-shop?retryWrites=true&w=majority"
+ES node  Module 
+mongoose -object data maper ,
