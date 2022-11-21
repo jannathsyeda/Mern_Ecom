@@ -11,6 +11,7 @@ router.get('/',asyncHandler(async(req,res)=>{
     const ALLProducts=await Product.find({})
 
     res.json(ALLProducts)
+   
     
 }))
 router.get('/:id',asyncHandler(async(req,res)=>{
