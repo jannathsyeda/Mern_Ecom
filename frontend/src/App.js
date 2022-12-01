@@ -14,7 +14,7 @@ function App() {
       <main className="my-2">
         <Container>
           <Routes>
-            <Route path="/" element={<HeaderScreens />} />
+            <Route path="/"  element={<HeaderScreens />} />
             <Route path="/product/:id" element={<ProductScreen />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/signIn" element={<Login/>} />
