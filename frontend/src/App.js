@@ -4,8 +4,8 @@ import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HeaderScreens from "./Screens/HeaderScreens";
 import ProductScreen from "./Screens/ProductScreen";
-import Cart from "./Components/Cart";
 import Login from "./Components/Login";
+import Cart from "./Screens/Cart";
 
 function App() {
   return (
@@ -14,9 +14,11 @@ function App() {
       <main className="my-2">
         <Container>
           <Routes>
-            <Route path="/"  element={<HeaderScreens />} />
+            <Route path="/"  element={<HeaderScreens />} exact />
+            <Route path="/cart"  element={<Cart/>} exact />
+
             <Route path="/product/:id" element={<ProductScreen />} />
-            <Route path="/cart" element={<Cart />} />
+
             <Route path="/signIn" element={<Login/>} />
 
           </Routes>

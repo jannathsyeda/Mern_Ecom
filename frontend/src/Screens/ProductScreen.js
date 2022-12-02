@@ -10,7 +10,7 @@ import Message from '../Components/Message.js';
 import Form from 'react-bootstrap/Form';
 
 const ProductScreen = () => {
-  const [qty,setQty]=useState(0)
+  const [qty,setQty]=useState(1)
 const navigate =useNavigate  ()
   const { id } = useParams();
   const detailsOfProduct=useSelector((state)=>state.productDetail)
@@ -23,7 +23,7 @@ const dispatch=useDispatch()
 
 const addToCartHandler=()=>{
 
-  navigate(`/Cart/${id}?qty=${qty}`)
+  navigate(`/cart/${id}?qty=${qty}`)
 }
   return (
     <>
