@@ -11,6 +11,7 @@ import Form from 'react-bootstrap/Form';
 
 const ProductScreen = () => {
   const [qty,setQty]=useState(1)
+  console.log(qty)
 const navigate =useNavigate  ()
   const { id } = useParams();
   const detailsOfProduct=useSelector((state)=>state.productDetail)
@@ -23,7 +24,7 @@ const dispatch=useDispatch()
 
 const addToCartHandler=()=>{
 
-  navigate(`/cart/${id}?qty=${qty}`)
+  navigate(`/cart/?id=${id}&qty=${qty}`)
 }
   return (
     <>
