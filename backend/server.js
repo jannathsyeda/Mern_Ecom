@@ -4,17 +4,20 @@ import connectDB  from './config/db.js'
 import {notFound,errorHandler} from './middleware/error.js'
 import colors from 'colors'
 import RouterProduct from './routes/RouterProduct.js'
+import RouterUsers from './routes/RouterUsers.js'
 
 const app=express()
 connectDB()
 dotenv.config()
 console.log("server conncected")
 
+app.use(express.json())
 
 app.get('/',(req,res)=>{
     res.send("api is running")
 })
 app.use('/api/products',RouterProduct )
+app.use('/api/users',RouterUsers )
 
 
 app.use(notFound)
