@@ -1,12 +1,14 @@
 import express from 'express'
 const router =express.Router()
-import {authUsers} from '../controllers/UserController.js'
-
+import {authUsers,getUserProfile,registerUser} from '../controllers/UserController.js'
+import protect from '../middleware/authMiddleware.js'
 //@desc Fetch all products
 //@route GET/api/products
 //@access public
 
-// router.route('/').get(getAllUsers)
+router.route('/').post(registerUser)
+
+router.route('/profile').get(protect,getUserProfile)
 router.route('/login').post(authUsers)
 
 export default router
