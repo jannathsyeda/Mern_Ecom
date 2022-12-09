@@ -1,4 +1,5 @@
 import {USER_LOGING_REQUEST,USER_LOGING_SUCCESS,USER_LOGING_FAIL,USER_LOGOUT} from '../Constants/UserConstant'
+
 export const userLoginReducer = (state = {}, action) => {
     switch (action.type) {
       case USER_LOGING_REQUEST:

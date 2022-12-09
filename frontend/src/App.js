@@ -15,7 +15,7 @@ function App() {
         <Container>
           <Routes>
             <Route path="/"  element={<HeaderScreens />} exact />
-            <Route path="/signin"  element={<LoginScreen/>}/>
+            <Route path="/login"  element={<LoginScreen/>}/>
 
             <Route path="/product/:id" element={<ProductScreen />} />
             <Route path="/cart"  element={<CartScreen/>}/>

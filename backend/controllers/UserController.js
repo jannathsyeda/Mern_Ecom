@@ -17,7 +17,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-const authUsers = asyncHandler(async (req, res, next) => {
+const authUsers = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await Users.findOne({ email });
 
@@ -30,7 +30,7 @@ const authUsers = asyncHandler(async (req, res, next) => {
       token: generateToken(user._id)
     });
   } else {
-    res.status(401);
+    res.status(401)
     throw new Error("Invalid email or password");
   }
 });

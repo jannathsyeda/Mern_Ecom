@@ -1,46 +1,43 @@
-
-
 import { React, useEffect, useState } from "react";
-// import { axios } from "axios";
-import { Link,  useNavigate ,useSearchParams} from "react-router-dom";
+import { Link, Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { Col, Row, Image, ListGroup, Card, Button } from "react-bootstrap";
-// import { useDispatch, useSelector } from "react-redux";
 import Form from "react-bootstrap/Form";
-// import { userLogin } from "../actions/userAction";
-// import Message from "../Components/Message";
-// import Loader from "../Components/Loader";
+import Message from "../Components/Message";
 import FormContainer from "../Components/FormContainer";
 import { useDispatch, useSelector } from "react-redux";
+import Loader from "../Components/Loader";
+import { Login } from "../actions/userAction";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
-  const navigate=useNavigate()
+  const dispatch = useDispatch();
 
-  const dispatch=useDispatch()
+  const userLogin = useSelector((state) => state.userLogin);
+  const { loading, error, userInfo } = userLogin;
+  console.log("userInfo:", userInfo);
 
-  const userLogin=useSelector(state=>state.userLogin)
-  const {loading ,error,userInfo}= userLogin
+  const submitHandler = (e) => {
 
-  if(userInfo){
-    navigate("/login")
-  }
-  useEffect(()=>{
-   
-  },[])
+    e.preventDefault();
 
-  const submitHandler=(e)=>{
- e.preventDefault()
-  }
+   dispatch(Login(email,password));
+  //  if(userInfo){
+  //  navigate('/')}
+  // };
+
+  navigate('/')}
+
+ 
 
 
   return (
-   
-
-    <FormContainer> 
+    <FormContainer>
       <h1>Sign in</h1>
+      {error && <Message variant={"danger"}>{error}</Message>}
+      {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group>
           <Form.Label>Email Address</Form.Label>
@@ -72,16 +69,12 @@ const LoginScreen = () => {
 
       <Row className="py-3">
         <Col>
-        New Customer?{''} 
-        
+          New Customer?{""}
           Register
-        
         </Col>
-
       </Row>
-    </FormContainer> 
-  
-  )
+    </FormContainer>
+  );
 };
 
 export default LoginScreen;
