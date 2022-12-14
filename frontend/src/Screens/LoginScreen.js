@@ -19,18 +19,33 @@ const LoginScreen = () => {
   const { loading, error, userInfo } = userLogin;
   console.log("userInfo:", userInfo);
 
+
   const submitHandler = (e) => {
 
     e.preventDefault();
+
 
    dispatch(Login(email,password));
   //  if(userInfo){
   //  navigate('/')}
   // };
 
-  navigate('/')}
-
+  navigate('/')
+  const userStorageInfo=localStorage.getItem('userInfo')
+  console.log(userStorageInfo)
  
+ if(userStorageInfo){
+   navigate('/')
+ 
+ }
+}
+
+useEffect(()=>{
+  if(userInfo){
+    navigate('/')
+  
+  }
+      },[])
 
 
   return (
