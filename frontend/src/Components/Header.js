@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import {userLogout} from '../actions/userAction'
 
 const Header = () => {
 
@@ -11,7 +12,8 @@ const Header = () => {
   const {userInfo}=userLogin
 
   const logoutHandler=()=>{
-    console.log('logout')
+        
+    dispatch(userLogout())
   }
   return (
     <header>
@@ -26,6 +28,9 @@ const Header = () => {
             <Nav className="ms-auto">
               <Nav.Link as={Link} to="/cart">
                 <i className="fas fa-shopping-cart"></i>Cart
+              </Nav.Link>
+              <Nav.Link as={Link} to="/reg">
+                <i className="fas fa-shopping-cart"></i>rr
               </Nav.Link>
             {userInfo?(
                  <NavDropdown title={userInfo.name} id='username'>

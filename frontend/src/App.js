@@ -6,6 +6,7 @@ import HeaderScreens from "./Screens/HeaderScreens";
 import ProductScreen from "./Screens/ProductScreen";
 import CartScreen from "./Screens/CartScreen";
 import LoginScreen from "./Screens/LoginScreen";
+import RegisterScreen from "./Screens/RegisterScreen";
 
 function App() {
   return (
@@ -15,12 +16,12 @@ function App() {
         <Container>
           <Routes>
             <Route path="/"  element={<HeaderScreens />} exact />
+            <Route path="/signup"  element={<RegisterScreen/>}/>
+
             <Route path="/login"  element={<LoginScreen/>}/>
-
             <Route path="/product/:id" element={<ProductScreen />} />
+
             <Route path="/cart"  element={<CartScreen/>}/>
-
-
           </Routes>
         </Container>
       </main>

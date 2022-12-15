@@ -106,7 +106,7 @@ const addToCartHandler=()=>{
  
                          </Button>
  
-                  
+
                   </ListGroup.Item>
                </ListGroup>
            </Card>
