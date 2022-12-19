@@ -59,4 +59,31 @@ const registerUser = asyncHandler(async (req, res) => {
   }
    
   });
-export { authUsers, getUserProfile, registerUser };
+
+  const updateUserProfile = asyncHandler(async (req, res) => {
+    const { name,email, password } = req.body;
+    const userExist = await Users.findOne({ email });
+    if(userExist){
+      userExist.name=req.body.name || userExist.name 
+      userExist.email=req.body.email || userExist.email
+      if(req.body.password){
+        userExist.password=req.body.password
+
+      }
+    const updatedUser=await userExist.save()
+ 
+    res.status(201).json({
+        id: updatedUser._id,
+        name: updatedUser.name,
+        email: updatedUser.email,
+        isAdmin: updatedUser.isAdmin,
+        token: generateToken(updatedUser._id)
+    })}
+else{
+    res.status(400)
+    throw new Error('user not found')
+  }
+   
+  });
+
+export { authUsers, getUserProfile, registerUser,updateUserProfile };

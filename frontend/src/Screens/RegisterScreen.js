@@ -14,7 +14,7 @@ const RegisterScreen = () => {
   const [name, setName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
-
+console.log("name:", name);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -30,13 +30,15 @@ const RegisterScreen = () => {
   const submitHandler = (e) => {
 
     e.preventDefault();
-    if(password != confirmPassword){
-        setMessage("password do not match")
-    }else{
-           dispatch(RegisterAction(name,email, password));
-           navigate("/");
-}
-    
+    if(email !="" && password !="" && name !="" && confirmPassword !=""){
+        if(password != confirmPassword){
+            setMessage("password do not match")
+        }else{
+               dispatch(RegisterAction(name,email, password));
+               navigate("/");
+    }
+      }
+
   
   };
 
@@ -50,17 +52,7 @@ const RegisterScreen = () => {
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
 
-      <Form.Group>
-          <Form.Label>Email Address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          ></Form.Control>
-        </Form.Group>
+    
 
 
         <Form.Group>
@@ -71,6 +63,18 @@ const RegisterScreen = () => {
             value={name}
             onChange={(e) => {
               setName(e.target.value);
+            }}
+          ></Form.Control>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Email Address</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Enter email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
             }}
           ></Form.Control>
         </Form.Group>
@@ -106,8 +110,8 @@ const RegisterScreen = () => {
 
       <Row className="py-3">
         <Col>
-          Have you an account
-          
+          Have you an account?
+          <Link to="/login">Login</Link>
         </Col>
       </Row>
     </FormContainer>
