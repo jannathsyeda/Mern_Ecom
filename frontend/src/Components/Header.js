@@ -29,13 +29,11 @@ const Header = () => {
               <Nav.Link as={Link} to="/cart">
                 <i className="fas fa-shopping-cart"></i>Cart
               </Nav.Link>
-              <Nav.Link as={Link} to="/reg">
-                <i className="fas fa-shopping-cart"></i>rr
-              </Nav.Link>
+          
             {userInfo?(
                  <NavDropdown title={userInfo.name} id='username'>
-                 <Link to="profile">
-                 <NavDropdown.Item>Profile</NavDropdown.Item>
+                 <Link to="/profile">
+                 <NavDropdown.Item as={Link} to="/profile">Profile</NavDropdown.Item>
                  </Link>
                  <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
 
