@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useParams, useSearchParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useSearchParams, useNavigate,redirect,useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Row,
@@ -16,6 +16,8 @@ import { addCart,removeFromCart } from "../actions/cartAction";
 import Form from 'react-bootstrap/Form';
 
 const CartScreen = () => {
+  // const history = useHistory()
+
   const navigate=useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const id = searchParams.get("id");
@@ -39,7 +41,18 @@ const CartScreen = () => {
   }, [id, qty, dispatch]);
  
   const CheckoutHandler=()=>{
-   navigate('login?redirect=shpping');
+    const loginInfo=localStorage.getItem('userInfo')
+    console.log(loginInfo)
+    if(!loginInfo){
+       navigate('/login');
+  
+    }else{
+      if(loginInfo){
+        navigate('/shipping');
+      }
+    }
+   
+
   }
 
   return (
