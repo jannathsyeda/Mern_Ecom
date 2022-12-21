@@ -23,3 +23,7 @@ PORT=5000
 MONGO_URI="mongodb+srv://Jannath:jannath123@cluster0.ku9hx.mongodb.net/E-shop?retryWrites=true&w=majority"
 ES node  Module 
 mongoose -object data maper ,
+
+
+git command note:
+ git config --global user.email "jeta8@gmail.com"

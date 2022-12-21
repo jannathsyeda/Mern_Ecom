@@ -9,7 +9,7 @@ import {
   userDetailsAction,
   userProfileUpdateAction,
 } from "../actions/userAction";
-
+import { USER_PROFILE_RESET } from "../Constants/UserConstant";
 const ProfileScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,7 +32,10 @@ const ProfileScreen = () => {
     if (!userInfo) {
       navigate("/login");
     } else {
-      if (user && !user.name) {
+      if (user && !user.name || success) {
+        dispatch({
+          type:USER_PROFILE_RESET
+         })
         dispatch(userDetailsAction("profile"));
       } else {
         setName(user ? user.name : "");
