@@ -19,7 +19,7 @@ const cartItemsFromStorage=localStorage.getItem('cartItems')?JSON.parse(localSto
 
 const loginUserInfoFromStorage= localStorage.getItem('userInfo')?JSON.parse(localStorage.getItem('userInfo')):null
 
-const shippingAddressFromStorage= localStorage.getItem('shippingAddress')?JSON.parse(localStorage.getItem('shippingAddress')):{}
+const shippingAddressFromStorage= localStorage.getItem('shippingAddress')?JSON.parse(localStorage.getItem('shippingAddress')):{ }
 
 
 const initialState={
@@ -33,6 +33,7 @@ const initialState={
 
 }
 
+console.log(initialState.cart.shippingAddress)
 const middleware=[thunk]
 
 
