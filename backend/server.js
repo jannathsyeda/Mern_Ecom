@@ -5,6 +5,7 @@ import {notFound,errorHandler} from './middleware/error.js'
 import colors from 'colors'
 import RouterProduct from './routes/RouterProduct.js'
 import RouterUsers from './routes/RouterUsers.js'
+import RouterOrder from './routes/RouterOrder.js'
 
 const app=express()
 connectDB()
@@ -18,6 +19,7 @@ app.get('/',(req,res)=>{
 })
 app.use('/api/products',RouterProduct )
 app.use('/api/users',RouterUsers )
+app.use('/api/orders',RouterOrder )
 
 
 app.use(notFound)
