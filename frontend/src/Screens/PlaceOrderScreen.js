@@ -29,7 +29,7 @@ const PlaceOrderScreen = () => {
       })
       
     );
-    navigate(`/order/${order._id}`)
+    navigate(`/orders/${order._id}`)
   };
   //calculate prices
 

@@ -34,4 +34,20 @@ if(orderItems && orderItems.length === 0){
    
   });
 
-export { addOrderItems};
+  const getOrderById = asyncHandler(async(req,res)=>{
+    
+    const id=req.params.id
+    const order =await Order.findById(id).populate('user','name email')
+    
+     console.log(order)
+      if(order){
+        res.send(order)
+      }
+      else{
+        res.status(404)
+        throw new Error('Order not found')
+      }
+  })
+  
+
+export { addOrderItems,getOrderById};
