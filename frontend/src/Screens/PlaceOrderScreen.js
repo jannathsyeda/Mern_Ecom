@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Image, ListGroup, Row } from "react-bootstrap";
 import FormContainer from "../Components/FormContainer";
 import CheckoutSteps from "../Components/CheckoutSteps";
@@ -14,6 +14,17 @@ const PlaceOrderScreen = () => {
   const { order, success, error } = orderCreate;
 
   const navigate=useNavigate()
+
+  // useEffect(() => {
+  //   if (success) {
+  //     navigate(`/orders/${order._id}`);
+  //   }
+
+  // }, [success, navigate, order]);
+
+
+
+
   //place order handler
 
   const handlePlaceOrder = () => {
@@ -29,8 +40,12 @@ const PlaceOrderScreen = () => {
       })
       
     );
-    navigate(`/orders/${order._id}`)
+    if(success){
+      navigate(`/orders/${order._id}`)
+    }
+   
   };
+  
   //calculate prices
 
   const addDecimals = (num) => {

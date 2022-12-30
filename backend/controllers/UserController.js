@@ -2,6 +2,10 @@ import asyncHandler from "express-async-handler";
 import Users from "../Models/UserModel.js";
 import generateToken from "../utils/generateTokens.js";
 
+// @des get user profile
+// @route GET /api/users/profile
+// @access private
+
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await Users.findById(req.user._id);
   if (user) {
@@ -16,6 +20,10 @@ const getUserProfile = asyncHandler(async (req, res) => {
     throw new Error("user not found");
   }
 });
+
+// @des auth user and get token
+// @route POST /api/users/login
+// @access public
 
 const authUsers = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -34,6 +42,10 @@ const authUsers = asyncHandler(async (req, res) => {
     throw new Error("Invalid email or password");
   }
 });
+
+// @des register a new user
+// @route POST /api/users
+// @access public
 
 const registerUser = asyncHandler(async (req, res) => {
     const { name,email, password } = req.body;
@@ -59,6 +71,10 @@ const registerUser = asyncHandler(async (req, res) => {
   }
    
   });
+
+  // @des update user profile
+// @route PUT /api/users/profile
+// @access private
 
   const updateUserProfile = asyncHandler(async (req, res) => {
     const { name,email, password } = req.body;
