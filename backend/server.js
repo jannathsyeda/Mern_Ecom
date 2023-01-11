@@ -20,7 +20,7 @@ app.get('/',(req,res)=>{
 app.use('/api/products',RouterProduct )
 app.use('/api/users',RouterUsers )
 app.use('/api/orders',RouterOrder )
-
+app.use('/api/config/paypal',(req,res)=>res.send(process.env.PAYPAL_CLIENT_ID))
 
 app.use(notFound)
 
