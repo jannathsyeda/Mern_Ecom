@@ -76,5 +76,15 @@ if(orderItems && orderItems.length === 0){
     }
   })
 
+  // @des get logged in user orders
+  // @route GET /api/orders/myorders
+  // @access private
+  
 
-export { addOrderItems,getOrderById,updateOrderToPaid};
+  const getMyOrders = asyncHandler(async(req,res)=>{
+
+    const orders = await Order.find({user:req.user._id})
+    res.json(orders)
+  })  
+
+export { addOrderItems,getOrderById,updateOrderToPaid,getMyOrders};

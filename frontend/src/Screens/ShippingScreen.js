@@ -17,11 +17,12 @@ const ShipingScreen = () => {
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
   const [country, setCountry] = useState(shippingAddress.country);
   console.log(address);
+  
   const submitHandler = (e) => {
-    console.log({address,city,postalCode,country});
-        e.preventDefault()
-        dispatch(saveShippingAddress({address,city,postalCode,country}))
-     navigate('/payment');
+    console.log({ address, city, postalCode, country });
+    e.preventDefault();
+    dispatch(saveShippingAddress({ address, city, postalCode, country }));
+    navigate("/payment");
   };
 
   return (
