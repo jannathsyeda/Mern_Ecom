@@ -102,4 +102,11 @@ else{
    
   });
 
-export { authUsers, getUserProfile, registerUser,updateUserProfile };
+  const getUsers = asyncHandler(async (req, res) => { 
+    const users = await Users.find({});
+    res.json(users);
+  });
+
+
+
+export { authUsers, getUserProfile, registerUser,updateUserProfile,getUsers };

@@ -1,6 +1,6 @@
 import expres from 'express';
 import { addOrderItems,getOrderById,updateOrderToPaid,getMyOrders} from '../controllers/OrderController.js';
-import  protect  from '../middleware/authMiddleware.js';
+import {protect} from '../middleware/authMiddleware.js';
 const router = expres.Router();
 
 router.route('/').post(protect, addOrderItems);
