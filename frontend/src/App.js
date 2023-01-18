@@ -25,7 +25,6 @@ function App() {
             <Route path="/signup"  element={<RegisterScreen/>}/>
             <Route path="/profile"  element={<ProfileScreen/>}/>
             <Route path="/userList"  element={<UserListScreen/>}/>
-
             <Route path="/login"  element={<LoginScreen/>}/>
             <Route path="/shipping"  element={<ShipingScreen/>}/>
             <Route path="/payment"  element={<PaymentScreen/>}/>
