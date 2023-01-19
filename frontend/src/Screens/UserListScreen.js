@@ -4,7 +4,7 @@ import { Col, Row, Image, ListGroup, Card, Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Message from "../Components/Message";
 import { useDispatch, useSelector } from "react-redux";
-import { listUsers } from "../actions/userAction";
+import { listUsers,deleteUser } from "../actions/userAction";
 const UserListScreen = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -23,7 +23,10 @@ const UserListScreen = () => {
         
     }, [dispatch])
 
-
+const deleteHandler = (id) => 
+{
+ dispatch(deleteUser(id))
+}
 
 
   return (
@@ -60,8 +63,8 @@ const UserListScreen = () => {
                                         <i className='fas fa-edit'></i>
                                     </Button>
                                 </Link>
-                                <Button variant='danger' className='btn-sm'>
-
+                                <Button variant='danger' className='btn-sm' onClick={deleteHandler(user._id)}>
+                                <i className='fas fa-trash'></i>
                                 </Button>
                             </td>
                         </tr>

@@ -23,9 +23,10 @@ function App() {
           <Routes>
             <Route path="/"  element={<HeaderScreens />} exact />
             <Route path="/signup"  element={<RegisterScreen/>}/>
+            <Route path="/login"  element={<LoginScreen/>}/> 
             <Route path="/profile"  element={<ProfileScreen/>}/>
             <Route path="/userList"  element={<UserListScreen/>}/>
-            <Route path="/login"  element={<LoginScreen/>}/>
+           
             <Route path="/shipping"  element={<ShipingScreen/>}/>
             <Route path="/payment"  element={<PaymentScreen/>}/>
             <Route path="/placeOrder"  element={<PlaceOrderScreen/>}/>

@@ -9,27 +9,6 @@ import Loader from "../Components/Loader";
 import { Login } from "../actions/userAction";
 
 
-let employees = [
-  { id: 1, name: "John", age: 30, salary: 4000 },
-  { id: 2, name: "Sara", age: 32, salary: 5000 },
-  { id: 3, name: "Mark", age: 25, salary: 2000 },
-  { id: 4, name: "Pam", age: 27, salary: 3000 },
-  { id: 5, name: "Todd", age: 35, salary: 6000 },
-]
-
-// get all employees whose name contain 'a' or 'A' and salary greater than 3000
-let result = employees.filter((employee) => {
-  return (employee.name.includes('a') || employee.name.includes('A')) && employee.salary > 3000
-})
-
-
-console.log(result)
-
-
-
-
-
-
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,11 +19,7 @@ const LoginScreen = () => {
   const { loading, error, userInfo } = userLogin;
   console.log("userInfo:", userInfo);
 
-  useEffect(() => {
-    if (userInfo) {
-      navigate("/");
-    }
-  }, []);
+
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -93,12 +68,14 @@ const LoginScreen = () => {
         </Button>
       </Form>
 
-      <Row className="py-3">
+      <Link to="/signup">     <Row className="py-3">
         <Col>
           New Customer?
-          <Link to="/signup">Register</Link>
+
+          Register
+
         </Col>
-      </Row>
+      </Row></Link>
     </FormContainer>
   );
 };
