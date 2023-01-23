@@ -21,11 +21,11 @@ console.log("name:", name);
   const userRegister = useSelector((state) => state.userRegister);
   const { loading, error, userInfo } = userRegister;
 
-  useEffect(() => {
-    if (userInfo) {
-      navigate("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (userInfo) {
+  //     navigate("/");
+  //   }
+  // }, []);
 
   const submitHandler = (e) => {
 

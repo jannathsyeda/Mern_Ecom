@@ -15,10 +15,10 @@ import {
   USER_LIST_REQUEST,
   USER_LIST_SUCCESS,
   USER_LIST_FAIL,
-  USER_LIST_RESET,
   USER_DELETE_REQUEST,
   USER_DELETE_SUCCESS,
-  USER_DELETE_FAIL
+  USER_DELETE_FAIL,
+  USER_LIST_RESET
 } from "../Constants/UserConstant";
 import axios from "axios";
 import { ORDER_LIST_MY_RESET } from "../Constants/OrderConstant";
@@ -58,9 +58,9 @@ export const Login = (email, password) => async (dispatch) => {
 export const userLogout = () => (dispatch) => {
   localStorage.removeItem("userInfo");
   dispatch({type: USER_LOGOUT});
-  dispatch({ type: USER_PROFILE_RESET});
-  dispatch({ type: ORDER_LIST_MY_RESET});
+  dispatch({ type: USER_PROFILE_RESET}); 
   dispatch({ type: USER_LIST_RESET});
+  dispatch({ type: ORDER_LIST_MY_RESET});
 
 
 };
@@ -181,9 +181,7 @@ export const listUsers=()=>async(dispatch,getState)=>{
       type: USER_LIST_REQUEST,
     });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { userLogin: { userInfo }} = getState();
     const config = {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,

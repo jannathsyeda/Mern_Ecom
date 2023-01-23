@@ -1,27 +1,32 @@
-import { React, useEffect, useState } from "react";
-import { Link,  useNavigate, useSearchParams } from "react-router-dom";
-import { Col, Row, Image, ListGroup, Card, Button } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
+import { React, useEffect } from "react";
+import { Link,  useNavigate } from "react-router-dom";
+import {  Button } from "react-bootstrap";
 import Message from "../Components/Message";
 import { useDispatch, useSelector } from "react-redux";
 import { listUsers,deleteUser } from "../actions/userAction";
 const UserListScreen = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
     const userList = useSelector(state => state.userList)
     const { loading, error, users } = userList
+
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
     
+    const userDelete = useSelector(state => state.deleteUser)
+    const { success:successDelete } = userDelete
+
+
 
     useEffect(() => {
         if(userInfo && userInfo.isAdmin) {
-             dispatch(listUsers())   
-        }else{
+            dispatch(listUsers())
+      }else{
             navigate('/login')
         }
         
-    }, [dispatch])
+    }, [dispatch, userInfo, successDelete])
 
 const deleteHandler = (id) => 
 {
@@ -63,7 +68,7 @@ const deleteHandler = (id) =>
                                         <i className='fas fa-edit'></i>
                                     </Button>
                                 </Link>
-                                <Button variant='danger' className='btn-sm' onClick={deleteHandler(user._id)}>
+                                <Button variant='danger' className='btn-sm' onClick={()=>{deleteHandler(user._id)}}>
                                 <i className='fas fa-trash'></i>
                                 </Button>
                             </td>
