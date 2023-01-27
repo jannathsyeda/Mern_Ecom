@@ -1,9 +1,10 @@
-import { React, useEffect } from "react";
+import { React, useEffect ,useRef} from "react";
 import { Link,  useNavigate } from "react-router-dom";
 import {  Button } from "react-bootstrap";
 import Message from "../Components/Message";
 import { useDispatch, useSelector } from "react-redux";
 import { listUsers,deleteUser } from "../actions/userAction";
+
 const UserListScreen = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -18,15 +19,24 @@ const UserListScreen = () => {
     const { success:successDelete } = userDelete
 
 
-
     useEffect(() => {
         if(userInfo && userInfo.isAdmin) {
             dispatch(listUsers())
       }else{
             navigate('/login')
         }
+
+   
+
+
+          
+
         
     }, [dispatch, userInfo, successDelete])
+
+
+
+
 
 const deleteHandler = (id) => 
 {
@@ -63,11 +73,14 @@ const deleteHandler = (id) =>
                                 )}
                             </td>
                             <td>
-                                <Link to={`/admin/user/${user._id}/edit`}>
+                            <Link to={`/admin/user/${user._id}/edit`}>
                                     <Button variant='light' className='btn-sm'>
                                         <i className='fas fa-edit'></i>
                                     </Button>
                                 </Link>
+                            </td>
+                            <td>
+                                
                                 <Button variant='danger' className='btn-sm' onClick={()=>{deleteHandler(user._id)}}>
                                 <i className='fas fa-trash'></i>
                                 </Button>
