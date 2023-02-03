@@ -26,6 +26,10 @@ const CartScreen = () => {
   console.log("qty:", qty, "id:", id);
 
   const cart = useSelector((state) => state.cart);
+
+  const {userInfo}=useSelector(state=>state.userLogin)
+
+
   const { cartItems } = cart;
   console.log(cartItems)
   const dispatch = useDispatch();
@@ -38,6 +42,11 @@ const CartScreen = () => {
     if (id) {
       dispatch(addCart(id, qty));
     }
+
+ 
+
+
+
   }, [id, qty, dispatch]);
  
   const CheckoutHandler=()=>{
