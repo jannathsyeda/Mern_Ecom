@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "c43c48c3-286b-4da9-a4d2-1fe62c0f9a5a",
+		"name": "ecom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16735342"
+	},
+	"item": [
+		{
+			"name": "user&auth",
+			"item": [
+				{
+					"name": "http://localhost:3000/api/users/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"    pm.environment.set(\"TOKEN\",pm.response.json().token)\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@example.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/users/profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmZkNjE1ZTEzMzljYTExODVjOWVjYiIsImlhdCI6MTY3MDQwNjc1NywiZXhwIjoxNjcyOTk4NzU3fQ.lpPL3VMgNK2y1KsgKKzf8_J_i8b9eksgTh-zNjiR25A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n   \"name\":\"yddoam\",\r\n   \"email\":\"ydoiio@example.com\",\r\n   \"password\":\"12346788876\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/users/profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmZkNjE1ZTEzMzljYTExODVjOWVjYiIsImlhdCI6MTY3MDQwNjc1NywiZXhwIjoxNjcyOTk4NzU3fQ.lpPL3VMgNK2y1KsgKKzf8_J_i8b9eksgTh-zNjiR25A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Admin User Update\",\r\n    \"email\": \"admin@example.com\",\r\n    \"isAdmin\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/users/profile",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYzE0OWU0ZDAwNWE3MDVmNzk5ZDZhNSIsImlhdCI6MTY3Mzk0NjY0NCwiZXhwIjoxNjc2NTM4NjQ0fQ.VIPb1WT8HeFKvXYWoWjpwyPqx9D8FSyqT14FuwYjmDI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/users/63c7bf5cd417c2e0dfb4a249",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"63c7bf5cd417c2e0dfb4a249"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "http://localhost:3000/api/products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/products/636fd615e1339ca1185c9ed0",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/products/636fd615e1339ca1185c9ed0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"636fd615e1339ca1185c9ed0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "http://localhost:3000/api/orders/63ac1ebd2b8e086d569a86ed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTAxOGUzYjczZTM5N2U5ZjE2YTg2MiIsImlhdCI6MTY3MTQzNjUxNiwiZXhwIjoxNjc0MDI4NTE2fQ.lp1F4YMfLrA9V7qKUwuOIeLBdkeo-4PeEhOCXJRcwcQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/orders/63ac1ebd2b8e086d569a86ed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders",
+								"63ac1ebd2b8e086d569a86ed"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
