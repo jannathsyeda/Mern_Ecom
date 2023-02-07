@@ -104,10 +104,10 @@ export const productDeleteAction = (id) => async (dispatch, getState) => {
         },
       };
 
-    const { data } = await axios.delete(`/api/products/${id}`);
+    await axios.delete(`/api/products/${id}`,config);
     dispatch({
       type: PRODUCT_DELETE_SUCCESS,
-      payload: data,
+     
     });
   } catch (error) {
     dispatch({
