@@ -6,7 +6,7 @@ import colors from 'colors'
 import RouterProduct from './routes/RouterProduct.js'
 import RouterUsers from './routes/RouterUsers.js'
 import RouterOrder from './routes/RouterOrder.js'
-
+import path from 'path'
 const app=express()
 connectDB()
 dotenv.config()
@@ -21,6 +21,11 @@ app.use('/api/products',RouterProduct )
 app.use('/api/users',RouterUsers )
 app.use('/api/orders',RouterOrder )
 app.use('/api/config/paypal',(req,res)=>res.send(process.env.PAYPAL_CLIENT_ID))
+
+const __dirname=path.resolve()
+app.use('/uploads',express.static(path.join(__dirname,'/uploads')))
+
+
 
 app.use(notFound)
 
