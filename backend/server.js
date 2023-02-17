@@ -9,11 +9,20 @@ import RouterOrder from './routes/RouterOrder.js'
 import path from 'path'
 import uploadRoutes from './routes/UploadRoutes.js'
 const app=express()
+
+
+
 connectDB()
 dotenv.config()
 console.log("server conncected")
 
 app.use(express.json())
+
+// if(process.env.NODE_ENV==='development'){
+//     app.use(morgan('dev'))
+
+// }
+
 
 app.get('/',(req,res)=>{
     res.send("api is running")
