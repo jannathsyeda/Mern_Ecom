@@ -118,16 +118,6 @@ const createProductReview=asyncHandler(async(req,res)=>{
 
 })
 
-
-
-
-
-
-
-
-
-
-
 export {getAllProducts,productById,deleteProduct,createProduct,updateProduct,createProductReview}
 
 

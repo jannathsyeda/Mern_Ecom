@@ -155,6 +155,39 @@ export const productUpdateAction = (product) => async (dispatch, getState) => {
   }
 };
 
+export const productCreateReviewAction = (productId, review) => async (
+  dispatch,
+  getState
+) => {
+  try {
+    dispatch({
+      type: PRODUCT_CREATE_REQUEST,
+    });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    await axios.post(`/api/products/${productId}/reviews`, review, config);
+    dispatch({
+      type: PRODUCT_CREATE_SUCCESS,
+    });
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_CREATE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+
 
 // Description: This is the ProductList component. It is used to display the list of products.
 
