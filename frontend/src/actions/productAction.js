@@ -15,6 +15,9 @@ import {
   PRODUCT_UPDATE_REQUEST,
   PRODUCT_UPDATE_SUCCESS,
   PRODUCT_UPDATE_FAIL,
+  PRODUCT_CREATE_REVIEW_REQUEST,
+  PRODUCT_CREATE_REVIEW_SUCCESS,
+  PRODUCT_CREATE_REVIEW_FAIL,
 } from "../Constants/ProductConstant";
 
 export const listProduct = () => async (dispatch) => {
@@ -161,7 +164,7 @@ export const productCreateReviewAction = (productId, review) => async (
 ) => {
   try {
     dispatch({
-      type: PRODUCT_CREATE_REQUEST,
+      type: PRODUCT_CREATE_REVIEW_REQUEST,
     });
     const {
       userLogin: { userInfo },
@@ -174,11 +177,11 @@ export const productCreateReviewAction = (productId, review) => async (
     };
     await axios.post(`/api/products/${productId}/reviews`, review, config);
     dispatch({
-      type: PRODUCT_CREATE_SUCCESS,
+      type: PRODUCT_CREATE_REVIEW_SUCCESS,
     });
   } catch (error) {
     dispatch({
-      type: PRODUCT_CREATE_FAIL,
+      type: PRODUCT_CREATE_REVIEW_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
