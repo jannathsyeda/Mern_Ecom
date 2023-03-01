@@ -17,6 +17,7 @@ import UserEditScreen from "./Screens/UserEditScreen";
 import ProductListScreen from "./Screens/ProductListScreen";
 import ProductEditScreen from "./Screens/ProductEditScreen";
 import OrderListScreen from "./Screens/OrderListScreen";
+import SearchBox from "./Components/SearchBox"
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route path="/placeOrder" element={<PlaceOrderScreen />} />
             <Route path="/product/:id" element={<ProductScreen />} />
             <Route path="/orders/:id" element={<OrderScreen />} />
+            <Route path="/search/:keyword" element={<HeaderScreens/> } />
             <Route path="/cart" element={<CartScreen />} />
           </Routes>
         </Container>
