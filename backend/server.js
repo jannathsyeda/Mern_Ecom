@@ -14,7 +14,7 @@ const app=express()
 
 connectDB()
 dotenv.config()
-console.log("server conncected")
+console.log("server conncected now")
 
 app.use(express.json())
 
