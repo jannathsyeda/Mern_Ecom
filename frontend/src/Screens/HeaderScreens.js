@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from 'react'
+import {Helmet} from "react-helmet";
 import { Row, Col } from 'react-bootstrap'
 import Product from '../Components/Product'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,8 +7,11 @@ import { listProduct } from '../actions/productAction'
 import Loader from '../Components/Loader.js'
 import Message from '../Components/Message'
 import Pagi from './Pagi'
+import { useParams } from 'react-router-dom'
+import Procarousel from '../Components/ProCarousel.js'
 
 const HeaderScreens = () => {
+    const {keyword}= useParams()
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(4);
 
@@ -18,8 +22,8 @@ const HeaderScreens = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(listProduct())
-    }, [dispatch])
+        dispatch(listProduct(keyword))
+    }, [dispatch,keyword])
 
     const finalProcessData = products.sort(function (a, b) {
         if (a.createdAt > b.createdAt) return -1;
@@ -37,11 +41,15 @@ const HeaderScreens = () => {
       const prevPage = () => setCurrentPage(currentPage - 1);
     return (
         <>
-            <h1>Latest Products</h1>{loading ? (<Loader />) : error ? (<Message variant={'danger'}>{error}</Message>) :
+        {!keyword && <Procarousel/>}
+       
+            <h1 class="mt-5">Latest Products</h1>
+         {loading ? (<Loader />) : error ? (<Message variant={'danger'}>{error}</Message>) :
              (<Row>
                 {
                                  currentPosts.length > 0 &&
                                  currentPosts.map((product) => (
+                                  
                         <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                             <Product product={product} />
                         </Col>

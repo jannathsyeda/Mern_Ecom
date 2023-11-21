@@ -11,6 +11,7 @@ import { PRODUCT_CREATE_REVIEW_RESET } from "../Constants/ProductConstant.js";
 import Loader from "../Components/Loader.js";
 import Message from "../Components/Message.js";
 import Form from "react-bootstrap/Form";
+import Meta from "../Components/Meta.js";
 
 const ProductScreen = () => {
   const [qty, setQty] = useState(1);
@@ -80,6 +81,7 @@ const ProductScreen = () => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
+        <Meta title={product.name}/>
           <Row>
             <Col md={6}>
               <Image src={product.image} alt={product.name} fluid />
